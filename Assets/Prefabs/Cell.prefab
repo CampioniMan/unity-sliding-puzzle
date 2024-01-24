@@ -66,6 +66,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   displayedNumber: {fileID: 2129665896878401010}
+  textColor: {r: 0.39215687, g: 0.21960784, b: 0.2627451, a: 1}
 --- !u!1 &8097663682766700332
 GameObject:
   m_ObjectHideFlags: 0
@@ -217,7 +218,7 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4282595428
+    rgba: 4291948797
   m_fontColor: {r: 0.39215687, g: 0.21960784, b: 0.2627451, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
