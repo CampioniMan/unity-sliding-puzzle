@@ -1,14 +1,12 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    [SerializeField] private My2DGrid grid;
+    [SerializeField] private GridController gridController;
+    [SerializeField] private int squareSideSize;
 
     public void Start()
     {
-        grid.Setup();
+        gridController.Setup(squareSideSize);
     }
 }
