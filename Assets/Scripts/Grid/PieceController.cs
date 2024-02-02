@@ -10,7 +10,9 @@ namespace Grid
 
         private int _displayedIndex;
         private Action<int, int> _onClick;
-        
+
+        public int DisplayedIndex => _displayedIndex;
+
         public void Init(int index, Action<int, int> onClick)
         {
             _displayedIndex = index + 1;

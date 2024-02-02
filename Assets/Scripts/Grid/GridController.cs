@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -7,12 +8,19 @@ namespace Grid
     public class GridController : MonoBehaviour
     {
         [SerializeField] private GridView view;
-    
+
+        public event Action OnMove;
+        public event Action OnFisish;
+        
         private int _size;
         private PlaceController[] _places;
 
         public void Setup(int size)
         {
+            if (_places != null)
+            {
+                view.Clear();
+            }
             _size = size;
             _places = view.Setup(size, OnPieceClick);
             RandomizeStart();
@@ -24,8 +32,9 @@ namespace Grid
             var previousEmpty = -1;
             var emptyIndex = _places.TakeWhile(place => place.HasContent()).Count();
             var rnd = new System.Random();
+            var initialMovementCount = _size * 70 / 9;
 
-            for (var i = 0; i < 70; i++)
+            for (var i = 0; i < initialMovementCount; i++)
             {
                 var options = new List<int>();
                 if (emptyIndex >= _size)
@@ -85,13 +94,14 @@ namespace Grid
 
         private void OnPieceClick(int clickedIndex, int displayedIndex)
         {
-            Debug.Log(clickedIndex + " " + displayedIndex);
             var content = _places[clickedIndex].RemoveContent();
             if (clickedIndex >= _size)
             {
                 var cellAbove = _places[clickedIndex - _size];
                 if (cellAbove.SetContent(content))
                 {
+                    OnMove?.Invoke();
+                    if (HasWon()) OnFisish?.Invoke();
                     return;
                 }
             }
@@ -101,6 +111,8 @@ namespace Grid
                 var cellToTheLeft = _places[clickedIndex - 1];
                 if (cellToTheLeft.SetContent(content))
                 {
+                    OnMove?.Invoke();
+                    if (HasWon()) OnFisish?.Invoke();
                     return;
                 }
             }
@@ -110,6 +122,8 @@ namespace Grid
                 var cellToTheRight = _places[clickedIndex + 1];
                 if (cellToTheRight.SetContent(content))
                 {
+                    OnMove?.Invoke();
+                    if (HasWon()) OnFisish?.Invoke();
                     return;
                 }
             }
@@ -119,12 +133,25 @@ namespace Grid
                 var cellBelow = _places[clickedIndex + _size];
                 if (cellBelow.SetContent(content))
                 {
+                    OnMove?.Invoke();
+                    if (HasWon()) OnFisish?.Invoke();
                     return;
                 }
             }
 
             _places[clickedIndex].SetContent(content);
             Debug.Log("Piece can't be moved.");
+        }
+
+        private bool HasWon()
+        {
+            for (var index = 0; index < _places.Length; index++)
+            {
+                var place = _places[index];
+                if (place.Content != null && place.Content.DisplayedIndex != index + 1) return false;
+            }
+
+            return true;
         }
     }
 }

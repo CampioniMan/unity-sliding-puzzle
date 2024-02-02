@@ -1,6 +1,8 @@
 ﻿using System;
+using System.Linq;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
 using Random = System.Random;
 
 namespace Grid
@@ -15,7 +17,7 @@ namespace Grid
         public PlaceController[] Setup(int size, Action<int, int> onPieceClick)
         {
             var places = new PlaceController[size * size];
-            var missingPieceIndex = 8;//new Random().Next(0, places.Length);
+            var missingPieceIndex = places.Length - 1;//new Random().Next(0, places.Length); // more difficult?
             for (var i = 0; i < size; i++)
             {
                 var horizontalList = Instantiate(horizontalPrefab, vertical);
@@ -37,6 +39,15 @@ namespace Grid
             }
 
             return places;
+        }
+
+        public void Clear()
+        {
+            var horizontalLists = vertical.GetComponentsInChildren<HorizontalLayoutGroup>();
+            foreach (var horizontal in horizontalLists)
+            {
+                DestroyImmediate(horizontal.gameObject);
+            }
         }
     }
 }
