@@ -190,7 +190,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   vertical: {fileID: 1995769201}
   horizontalPrefab: {fileID: 7336011724707404465, guid: 8920a5bdbe07d1141bf97ec8169007c4, type: 3}
-  cellPrefab: {fileID: 7686205451072606227, guid: 69a923294d2169246a750a38d6128589, type: 3}
+  placePrefab: {fileID: 7686205451072606227, guid: 69a923294d2169246a750a38d6128589, type: 3}
+  piecePrefab: {fileID: 7686205451072606227, guid: 1e7c9c60f4fc1f94a9d78d7fb561fd93, type: 3}
 --- !u!1 &261160515
 GameObject:
   m_ObjectHideFlags: 0
@@ -643,7 +644,7 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_VertexColorAlwaysGammaSpace: 1
-  m_AdditionalShaderChannelsFlag: 1
+  m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
   m_SortingOrder: 0

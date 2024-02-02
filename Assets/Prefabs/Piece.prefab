@@ -9,10 +9,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5427841400389218816}
-  - component: {fileID: 4350069924386908737}
-  - component: {fileID: 8529498406403066899}
+  - component: {fileID: 7347774780711414250}
+  - component: {fileID: 1962603250752307808}
   m_Layer: 5
-  m_Name: Cell
+  m_Name: Piece
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -35,12 +35,12 @@ RectTransform:
   m_Father: {fileID: 0}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 260, y: 260}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &4350069924386908737
+--- !u!114 &7347774780711414250
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -49,11 +49,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 7686205451072606227}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7e10b310eb0481641aab16366b0d65e7, type: 3}
+  m_Script: {fileID: 11500000, guid: 28138283572d4167bf43ae28eca26a37, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  view: {fileID: 8529498406403066899}
---- !u!114 &8529498406403066899
+  view: {fileID: 1962603250752307808}
+--- !u!114 &1962603250752307808
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -62,10 +62,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 7686205451072606227}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6cbc490079bc45518706e6f9befa85e0, type: 3}
+  m_Script: {fileID: 11500000, guid: fb5b092bdbd4421490edcb4d5b54e517, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  background: {fileID: 6214580576219487846}
   displayedNumber: {fileID: 2129665896878401010}
+  backgroundColor: {r: 0.6745098, g: 0.49019608, b: 0.53333336, a: 1}
   textColor: {r: 0.39215687, g: 0.21960784, b: 0.2627451, a: 1}
 --- !u!1 &8097663682766700332
 GameObject:
