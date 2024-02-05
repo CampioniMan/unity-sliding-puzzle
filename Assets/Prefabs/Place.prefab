@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5427841400389218816}
   - component: {fileID: 7877305819886428274}
-  - component: {fileID: -7110983272451974044}
+  - component: {fileID: -7514975934456320392}
   m_Layer: 5
   m_Name: Place
   m_TagString: Untagged
@@ -51,7 +51,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e10b310eb0481641aab16366b0d65e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &-7110983272451974044
+--- !u!114 &-7514975934456320392
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -60,11 +60,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 7686205451072606227}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 86710e43de46f6f4bac7c8e50813a599, type: 3}
+  m_Script: {fileID: 11500000, guid: 306cc8c2b49d7114eaa3623786fc2126, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_AspectMode: 1
-  m_AspectRatio: 1
+  m_IgnoreLayout: 0
+  m_MinWidth: 110
+  m_MinHeight: 110
+  m_PreferredWidth: 260
+  m_PreferredHeight: 260
+  m_FlexibleWidth: -1
+  m_FlexibleHeight: -1
+  m_LayoutPriority: 1
 --- !u!1 &8097663682766700332
 GameObject:
   m_ObjectHideFlags: 0
@@ -82,7 +88,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &4324856301958346661
 RectTransform:
   m_ObjectHideFlags: 0

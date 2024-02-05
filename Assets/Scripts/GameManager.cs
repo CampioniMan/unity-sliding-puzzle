@@ -6,6 +6,7 @@ public class GameManager : MonoBehaviour
 {
     [SerializeField] private GridController gridController;
     [SerializeField] private GameView view;
+    [SerializeField] private SoundManager soundManager;
     [SerializeField] private int squareSideSize;
 
     private int _moveCount;
@@ -15,37 +16,51 @@ public class GameManager : MonoBehaviour
     public void Start()
     {
         view.Setup(StartGame);
+        soundManager.Init();
     }
 
     private void StartGame()
     {
-        _currentSecondsCount = -1;
+        soundManager.PlayButtonSound();
+        _currentSecondsCount = 0;
         _moveCount = 0;
+        view.SetMovementCount(_moveCount);
         gridController.Setup(squareSideSize);
         gridController.OnMove += OnMove;
         gridController.OnFisish += OnFinish;
+        view.SetPlayingTime(_currentSecondsCount);
         _timerCoroutine = StartCoroutine(UpdateTimer());
     }
 
     private void OnMove()
     {
         view.SetMovementCount(++_moveCount);
+        soundManager.PlayMoveSound();
     }
 
     private void OnFinish()
     {
+        soundManager.PlayWinSound();
         StopCoroutine(_timerCoroutine);
         view.SetReplayButtonVisibility(true);
         gridController.OnMove -= OnMove;
         gridController.OnFisish -= OnFinish;
     }
 
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Application.Quit();
+        }
+    }
+
     private IEnumerator UpdateTimer()
     {
         while (true)
         {
-            view.SetPlayingTime(++_currentSecondsCount);
             yield return new WaitForSeconds(1f);
+            view.SetPlayingTime(++_currentSecondsCount);
         }
     }
 

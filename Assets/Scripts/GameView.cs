@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Text;
+using DG.Tweening;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -14,7 +15,9 @@ public class GameView : MonoBehaviour
 	public void Setup(Action startGame)
 	{
 		playButton.onClick.AddListener(OnPlayClick);
+		playButton.transform.DOScale(1.2f, 0.6f).SetLoops(-1, LoopType.Yoyo);
 		replayButton.onClick.AddListener(OnPlayClick);
+		replayButton.transform.DOScale(1.2f, 0.6f).SetLoops(-1, LoopType.Yoyo);
 		
 		void OnPlayClick()
 		{
@@ -55,11 +58,7 @@ public class GameView : MonoBehaviour
 			remainingSeconds -= minutes * 60;
 		}
 		
-		if (remainingSeconds > 0)
-		{
-			builder.Append($"{remainingSeconds}s");
-		}
-
+		builder.Append($"{remainingSeconds}s");
 		playingTime.text = builder.ToString();
 	}
 }

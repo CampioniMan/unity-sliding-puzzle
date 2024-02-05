@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 5427841400389218816}
   - component: {fileID: 7347774780711414250}
   - component: {fileID: 1962603250752307808}
-  - component: {fileID: 2188686591918248286}
   m_Layer: 5
   m_Name: Piece
   m_TagString: Untagged
@@ -70,20 +69,6 @@ MonoBehaviour:
   displayedNumber: {fileID: 2129665896878401010}
   backgroundColor: {r: 0.6745098, g: 0.49019608, b: 0.53333336, a: 1}
   textColor: {r: 0.39215687, g: 0.21960784, b: 0.2627451, a: 1}
---- !u!114 &2188686591918248286
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7686205451072606227}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 86710e43de46f6f4bac7c8e50813a599, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_AspectMode: 1
-  m_AspectRatio: 1
 --- !u!1 &8097663682766700332
 GameObject:
   m_ObjectHideFlags: 0

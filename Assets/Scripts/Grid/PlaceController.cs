@@ -1,4 +1,5 @@
 using System;
+using DG.Tweening;
 using UnityEngine;
 
 namespace Grid
@@ -30,7 +31,8 @@ namespace Grid
             _content = content;
             var contentTransform = _content.transform;
             contentTransform.parent = transform;
-            contentTransform.localPosition = Vector3.zero;
+            contentTransform.DOKill();
+            contentTransform.DOLocalMove(Vector3.zero, 0.5f);
             return true;
         }
 
